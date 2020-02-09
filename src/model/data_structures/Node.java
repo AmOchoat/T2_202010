@@ -1,6 +1,6 @@
 package model.data_structures;
 
-public class Node <T >
+public class Node <T>
 {
 
 	private T elemento;
