@@ -1,6 +1,6 @@
 package model.data_structures;
 
-public interface IFixedCapacityStack <T extends Comparable<T>>{
+public interface IFixedCapacityStack<T extends Comparable<T>>{
 
 	/**
 	 * Retornar el numero de elementos presentes en el arreglo
@@ -25,7 +25,4 @@ public interface IFixedCapacityStack <T extends Comparable<T>>{
 	 * Indica si el stack está vacio.
 	 */
 	boolean isEmpty();
-	
-
-
 }

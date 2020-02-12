@@ -2,7 +2,7 @@ package model.logic;
 
 import java.util.Date;
 
-public class Comparendo {
+public class Comparendo implements  Comparable<Comparendo>{
 	private int objectId;
 	private Date fecha_hora;
 	private String des_infrac;
@@ -29,7 +29,6 @@ public class Comparendo {
 		latitud = latP;
 	}
 	
-	@Override
 	public String toString() {
 		return "Comparendo [OBJECTID=" + objectId + ", FECHA_HORA=" + fecha_hora + ", DES_INFRAC=" + des_infrac
 				+ ", MEDIO_DETE=" + medio_dete + ", CLASE_VEHI=" + clase_vehi + ", TIPO_SERVI=" + tipo_servi
@@ -37,4 +36,12 @@ public class Comparendo {
 				+ longitud + "]";
 	}
 	
+	public String darTipoInfraccion()
+	{
+		return infraccion;
+	}
+
+	public int compareTo(Comparendo o) {
+		return 0;
+	}	
 }

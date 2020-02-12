@@ -1,20 +1,16 @@
 package model.data_structures;
 
-public interface Iterator <E>
-{
+public interface Iterator<T> {
+
 	/**
-	 * @return True si existe un siguiente por visitar
+	 * @return True si hay un elemento (siguiente) por visitar.
 	 */
-	public boolean hasNext();
+	boolean hasNext();
 	
 	/**
-	 * @return el siguiente elemento de la lista
+	 * @return el (siguiente) elemento por visitar.
 	 * @throws NoSuchElementException si no hay elemento por visitar
 	 */
-	public E next();
+	T next();
 	
-	/**
-	 * Elimina el último elemento visitado
-	 */
-	public void remove();
 }

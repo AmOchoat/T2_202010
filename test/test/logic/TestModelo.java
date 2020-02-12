@@ -9,28 +9,24 @@ import org.junit.Test;
 public class TestModelo {
 	
 	private Modelo modelo;
-	private static int CAPACIDAD=100;
 	
 	@Before
-	public void setUp1() {
-		modelo= new Modelo(CAPACIDAD);
+	public void setUpPila() {
+		modelo= new Modelo();
 	}
 
-	public void setUp2() {
-		for(int i =0; i< CAPACIDAD;i++){
-			modelo.agregar(""+i);
-		}
+	public void setUpCola() {
 	}
 
 	@Test
-	public void testModelo() {
+	public void testModeloPila() {
 		assertTrue(modelo!=null);
-		assertEquals(0, modelo.darTamano());  // Modelo con 0 elementos presentes.
+		assertEquals(0, modelo.darTamanoPila());  // Modelo con 0 elementos presentes.
 	}
 
 	@Test
-	public void testDarTamano() {
-		// TODO
+	public void testDarTamanoPila() {
+	
 	}
 
 	@Test
@@ -40,13 +36,13 @@ public class TestModelo {
 
 	@Test
 	public void testBuscar() {
-		setUp2();
+		setUpCola();
 		// TODO Completar la prueba
 	}
 
 	@Test
 	public void testEliminar() {
-		setUp2();
+		setUpCola();
 		// TODO Completar la prueba
 		
 	}

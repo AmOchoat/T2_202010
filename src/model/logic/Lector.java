@@ -13,17 +13,20 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 
+import model.data_structures.FixedCapacityStack;
+import model.data_structures.IFixedCapacityStack;
+import model.data_structures.ILinkedQueue;
+import model.data_structures.LinkedQueue;
+
 public class Lector
 {
 	public static String PATH = "./data/comparendos_dei_2018_small.geojson";
 	public static String PATH2 = "./data/comparendos_dei_2018.geojson";
-	
-	
-	public List<Comparendo> cargarDatos() {
+		
+	public void cargarDatos(IFixedCapacityStack<Comparendo> pila, ILinkedQueue<Comparendo> cola) {
 		
 		//TODO Cambiar la clase del contenedor de datos por la Estructura de Datos propia adecuada para resolver el requerimiento 
-		List<Comparendo> datos = new ArrayList<Comparendo>();
-
+		
 		JsonReader reader;
 		try {
 			reader = new JsonReader(new FileReader(PATH));
@@ -53,14 +56,16 @@ public class Lector
 						.get(1).getAsDouble();
 
 				Comparendo c = new Comparendo(OBJECTID, FECHA_HORA, DES_INFRAC, MEDIO_DETE, CLASE_VEHI, TIPO_SERVI, INFRACCION, LOCALIDAD, longitud, latitud);
-				datos.add(c);
+				
+				System.out.println( pila.size() + "T");
+				pila.push( c );
+				cola.enqueue( c );
+
 			}
 
 		} catch (FileNotFoundException | ParseException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
-		}
-		return datos;	
-		
+		}		
 	}
 }

@@ -1,72 +1,75 @@
 package model.logic;
 
-import model.data_structures.ArregloDinamico;
-import model.data_structures.IArregloDinamico;
+import model.data_structures.FixedCapacityStack;
+import model.data_structures.IFixedCapacityStack;
+import model.data_structures.ILinkedQueue;
+import model.data_structures.Iterator;
+import model.data_structures.LinkedQueue;
 
 /**
  * Definicion del modelo del mundo
  *
  */
 public class Modelo {
-	/**
-	 * Atributos del modelo del mundo
-	 */
-	private IArregloDinamico datos;
+
+	private FixedCapacityStack<Comparendo> pila;
 	
+	private LinkedQueue<Comparendo> cola;
+	
+	private Lector lector;
 	/**
 	 * Constructor del modelo del mundo con capacidad predefinida
 	 */
 	public Modelo()
 	{
-		datos = new ArregloDinamico(7);
+		pila = new FixedCapacityStack<Comparendo>();
+		cola = new LinkedQueue<>();
+		lector = new Lector();
 	}
 	
 	/**
-	 * Constructor del modelo del mundo con capacidad dada
-	 * @param tamano
+	 * Inicia la lectura de datos en la cola y en la pila.
 	 */
-	public Modelo(int capacidad)
+	public void iniciarDatos()
 	{
-		datos = new ArregloDinamico(capacidad);
+		lector.cargarDatos(pila, cola);
 	}
-	
 	/**
 	 * Servicio de consulta de numero de elementos presentes en el modelo 
 	 * @return numero de elementos presentes en el modelo
 	 */
-	public int darTamano()
+	public int darTamanoPila()
 	{
-		return datos.darTamano();
-	}
-
-	/**
-	 * Requerimiento de agregar dato
-	 * @param dato
-	 */
-	public void agregar(String dato)
-	{	
-		datos.agregar(dato);
+		return pila.size();
 	}
 	
-	/**
-	 * Requerimiento buscar dato
-	 * @param dato Dato a buscar
-	 * @return dato encontrado
-	 */
-	public String buscar(String dato)
+	public int darTamanoCola()
 	{
-		return datos.buscar(dato);
+		return cola.size();
 	}
 	
-	/**
-	 * Requerimiento eliminar dato
-	 * @param dato Dato a eliminar
-	 * @return dato eliminado
-	 */
-	public String eliminar(String dato)
+	public String darElementoPila()
 	{
-		return datos.eliminar(dato);
+		return pila.darElemento().toString();
 	}
-
-
+	
+	public String darElementoCola()
+	{
+		return cola.darPrimero().toString();
+	}
+	
+	public LinkedQueue<Comparendo> opcion2()
+	{
+		LinkedQueue<Comparendo> rta = new LinkedQueue<Comparendo>();
+		Iterator<Comparendo> it = cola.iterator();
+		String[] tiposInfracciones = new String[10];
+		while(it.hasNext())
+		{
+			LinkedQueue<String> colador = new LinkedQueue<String>();
+			Comparendo e = it.next();
+			
+			System.out.println(e);
+		}
+		return rta;
+	}
 }

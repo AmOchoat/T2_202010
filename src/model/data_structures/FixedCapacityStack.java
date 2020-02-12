@@ -1,9 +1,9 @@
 package model.data_structures;
 
-public class FixedCapacityStack <T extends Comparable<T>> implements IFixedCapacityStack<T>{
+public class FixedCapacityStack<T extends Comparable<T>> implements IFixedCapacityStack<T>{
 
 	/**
-	 * 
+	 * Arreglo con elementos de tipo genérico.
 	 */
 	private T elementos[];
 	
@@ -24,8 +24,8 @@ public class FixedCapacityStack <T extends Comparable<T>> implements IFixedCapac
 	
 	public FixedCapacityStack()
 	{
-		elementos = ( T[]) new Comparable[1];
-		tamanoMax = 1;
+		elementos = ( T[]) new Comparable[2];
+		tamanoMax = elementos.length;
 		tamanoAct = 0;
 	}
 	
@@ -42,10 +42,11 @@ public class FixedCapacityStack <T extends Comparable<T>> implements IFixedCapac
 
         if ( tamanoAct == tamanoMax )
         {
-        	resize( 2 * elementos.length);
+        	resize( 2*elementos.length );
         }
         
-        elementos[tamanoAct++] = item;
+        elementos[tamanoAct] = item;
+        tamanoAct++;
 	}
 
 	/**
@@ -56,7 +57,7 @@ public class FixedCapacityStack <T extends Comparable<T>> implements IFixedCapac
 		
 		T item = elementos[--tamanoAct];
 		elementos[tamanoAct] = null;
-		if( tamanoAct > 0 && tamanoAct == elementos.length / 4)
+		if( tamanoAct > 0 && tamanoAct == elementos.length / 3)
 			resize( elementos.length / 2 );
 		return item;
 	}
@@ -79,7 +80,16 @@ public class FixedCapacityStack <T extends Comparable<T>> implements IFixedCapac
 		for (int i = 0; i < tamanoMax; ++i)
 		{
 			copy[i] = elementos[i];
-		}	
+		}
+		tamanoMax = capacidad;
 		elementos = copy;
+	}
+	
+	/**
+	 * 
+	 */
+	public T darElemento()
+	{
+		return elementos[tamanoAct-1];
 	}
 }
