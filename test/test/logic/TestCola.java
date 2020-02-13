@@ -20,6 +20,7 @@ public class TestCola {
 	@Before
 	public void setUp2()
 	{
+		cola = new LinkedQueue<String>();
 		cola.enqueue("pPrimero");
 		cola.enqueue("pSegundo");
 	}
@@ -51,5 +52,7 @@ public class TestCola {
 		setUp1();
 		setUp2();
 		assertEquals("El elemento debería ser diferente de null.", "pPrimero" , cola.dequeue() );
+		assertEquals("El elemento debería ser diferente de null.", "pSegundo" , cola.dequeue() );
+
 	}
 }

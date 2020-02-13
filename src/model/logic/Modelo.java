@@ -77,12 +77,10 @@ public class Modelo {
 	public LinkedQueue<Comparendo> opcion3(int pNumeroComparendos, String pTipoInfraccion)
 	{
 		LinkedQueue<Comparendo> respuesta = new LinkedQueue<Comparendo>();
-		FixedCapacityStack<Comparendo > aux = new FixedCapacityStack<>();
-		aux = pila;
 
-		while( !aux.isEmpty() && respuesta.size() < pNumeroComparendos)
+		while( !pila.isEmpty() && respuesta.size() < pNumeroComparendos)
 		{
-			Comparendo comparendo = aux.pop();
+			Comparendo comparendo = pila.pop();
 
 			if( comparendo.darTipoInfraccion().equals( pTipoInfraccion ))
 			{
