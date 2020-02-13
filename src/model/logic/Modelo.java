@@ -63,25 +63,53 @@ public class Modelo {
 	{
 		LinkedQueue<Comparendo> rta = new LinkedQueue<Comparendo>();
 		LinkedQueue<Comparendo> temporal =  new LinkedQueue<Comparendo>();
+
+		Comparendo aComparar = cola.dequeue();
+		temporal.enqueue(aComparar);
 		Iterator<Comparendo> it = cola.iterator();
+
+
 		while(it.hasNext())
 		{
-			Comparendo aComparar = it.next();
+			aComparar = it.next();
 			String tipoInf = aComparar.darTipoInfraccion();
-			if(temporal.isEmpty() || temporal.darPrimero().darTipoInfraccion().equals(tipoInf)){
+			if(temporal.isEmpty())
+			{
 				temporal.enqueue(aComparar);
 			}
 			else
 			{
-				if(temporal.size() > rta.size()){	
-					for( int i= 0; i<rta.size(); i++)
+				System.out.println(temporal.darPrimero().darTipoInfraccion());
+				System.out.println(tipoInf);
+				if(temporal.darPrimero().darTipoInfraccion().equals(tipoInf)){
+					temporal.enqueue(aComparar);
+				}
+				else
+				{
+					Iterator<Comparendo> itDos = temporal.iterator();
+					if(temporal.size() < rta.size())
 					{
-						rta.dequeue();
-					}	
-					for(int j=0; j<temporal.size(); j++)
-					{
-						rta.enqueue(temporal.darPrimero());
 						temporal.dequeue();
+						while(itDos.hasNext())
+						{
+							temporal.dequeue();
+						}
+					}
+					else
+					{
+						Iterator<Comparendo> itTres = rta.iterator();
+						while(itTres.hasNext())
+						{
+							rta.dequeue();
+							Comparendo rtaComparendo = itTres.next();
+						}
+						while(itDos.hasNext())
+						{
+							Comparendo aux = temporal.dequeue();
+							rta.enqueue(aux);
+
+						}
+
 					}
 				}
 			}

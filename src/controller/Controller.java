@@ -57,39 +57,45 @@ public class Controller {
 					break;
 
 				case 2:
-
-
-					break;
-
-				case 3:
-					view.printMessage("---------\nBuscar N comparendos por infracción :");
-					view.printMessage("---------\nIngrese el número de comparendos a buscar :");
-					int numeroComparendos = lector.nextInt();
-					view.printMessage("---------\nIngrese el tipo de comparendos a buscar :");				    
-					String claseComparendo = lector.next();
-					LinkedQueue<Comparendo> comparendos = modelo.opcion3(numeroComparendos, claseComparendo);
-					if( comparendos.size() == 0)
+					view.printMessage("---------\nBuscar grupo de comparendos más grande :");
+					LinkedQueue<Comparendo> comparendosD = modelo.opcion2();
+					System.out.println(comparendosD.size() + "assssssssss");
+					while( !comparendosD.isEmpty())
 					{
-						view.printMessage( "---------\nNo existen comparendos con ese tipo de infracción.\n---------\n");
-					}
-					while( !comparendos.isEmpty())
-					{
-						String infoComparendo = comparendos.dequeue().toString();
+						String infoComparendo = comparendosD.dequeue().toString();
 						view.printMessage( infoComparendo );
 					}
-					break;
-					
-				case 4: 
-					view.printMessage("--------- \n Hasta pronto !! \n---------"); 
-					lector.close();
-					fin = true;
-					break;	
+				break;
 
-				default: 
-					view.printMessage("--------- \n Opcion Invalida !! \n---------");
-					break;
+			case 3:
+				view.printMessage("---------\nBuscar N comparendos por infracción :");
+				view.printMessage("---------\nIngrese el número de comparendos a buscar :");
+				int numeroComparendos = lector.nextInt();
+				view.printMessage("---------\nIngrese el tipo de comparendos a buscar :");				    
+				String claseComparendo = lector.next();
+				LinkedQueue<Comparendo> comparendos = modelo.opcion3(numeroComparendos, claseComparendo);
+				if( comparendos.size() == 0)
+				{
+					view.printMessage( "---------\nNo existen comparendos con ese tipo de infracción.\n---------\n");
 				}
+				while( !comparendos.isEmpty())
+				{
+					String infoComparendo = comparendos.dequeue().toString();
+					view.printMessage( infoComparendo );
+				}
+				break;
+
+			case 4: 
+				view.printMessage("--------- \n Hasta pronto !! \n---------"); 
+				lector.close();
+				fin = true;
+				break;	
+
+			default: 
+				view.printMessage("--------- \n Opcion Invalida !! \n---------");
+				break;
 			}
-		}		
-	}	
+		}
+	}		
+}	
 }
