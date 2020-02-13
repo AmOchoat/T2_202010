@@ -10,42 +10,46 @@ import org.junit.Test;
 
 public class TestCola {
 	
-	private Modelo modelo;
+	private LinkedQueue<String> cola;
 	
 	@Before
-	public void setUpPila() {
-		LinkedQueue<int> cola = new LinkedQueue<int>();
+	public void setUp1() {
+		 cola = new LinkedQueue<String>();
 	}
-
-	public void setUpCola() {
+	
+	@Before
+	public void setUp2()
+	{
+		cola.enqueue("pPrimero");
+		cola.enqueue("pSegundo");
 	}
 
 	@Test
-	public void testModeloPila() {
-		assertTrue(modelo!=null);
-		assertEquals(0, modelo.darTamanoPila());  // Modelo con 0 elementos presentes.
+	public void testPila() {
+		assertTrue(cola!=null);
+		assertEquals(0, cola.size());  // Modelo con 0 elementos presentes.
 	}
 
 	@Test
 	public void testDarTamanoPila() {
-	
+		setUp1();
+		assertEquals(0, cola.size());  // Modelo con 0 elementos presentes.
+		setUp2();
+		assertEquals(2, cola.size()); // Modelo con 0 elementos presentes.
+
 	}
 
 	@Test
-	public void testAgregar() {
-		// TODO Completar la prueba
+	public void testEnqueue() {
+		setUp1();
+		cola.enqueue("pTercero");
+		assertEquals( "Al agregar un elemento el tamaño de la cola debería ser 1.",1, cola.size());
 	}
 
 	@Test
-	public void testBuscar() {
-		setUpCola();
-		// TODO Completar la prueba
-	}
-
-	@Test
-	public void testEliminar() {
-		setUpCola();
-		// TODO Completar la prueba
-		
+	public void testDequeue() {
+		setUp1();
+		setUp2();
+		assertEquals("El elemento debería ser diferente de null.", "pPrimero" , cola.dequeue() );
 	}
 }
