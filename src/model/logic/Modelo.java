@@ -79,8 +79,7 @@ public class Modelo {
 			}
 			else
 			{
-				System.out.println(temporal.darPrimero().darTipoInfraccion());
-				System.out.println(tipoInf);
+
 				if(temporal.darPrimero().darTipoInfraccion().equals(tipoInf)){
 					temporal.enqueue(aComparar);
 				}

@@ -59,11 +59,11 @@ public class Controller {
 				case 2:
 					view.printMessage("---------\nBuscar grupo de comparendos más grande :");
 					LinkedQueue<Comparendo> comparendosD = modelo.opcion2();
-					System.out.println(comparendosD.size() + "assssssssss");
+					view.printMessage("\nEl grupo más grande tiene tamaño :" + comparendosD.size() + "\n");
 					while( !comparendosD.isEmpty())
 					{
 						String infoComparendo = comparendosD.dequeue().toString();
-						view.printMessage( infoComparendo );
+						view.printMessage( infoComparendo + "\n" );
 					}
 				break;
 
@@ -81,7 +81,7 @@ public class Controller {
 				while( !comparendos.isEmpty())
 				{
 					String infoComparendo = comparendos.dequeue().toString();
-					view.printMessage( infoComparendo );
+					view.printMessage("\n" + infoComparendo );
 				}
 				break;
 
