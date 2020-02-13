@@ -75,7 +75,6 @@ public class LinkedQueue <T extends Comparable <T>> implements ILinkedQueue<T>, 
 	/**
 	 * Da el primer elemento en la pila. 
 	 */
-	@SuppressWarnings("unchecked")
 	public T darPrimero()
 	{
 		return (T)first.item;
@@ -88,7 +87,6 @@ public class LinkedQueue <T extends Comparable <T>> implements ILinkedQueue<T>, 
 
 	private class IteratorLista implements Iterator<T>
 	{
-		@SuppressWarnings("unchecked")
 		private NodoPrivado<T> y = first;
 
 		public boolean hasNext() {
@@ -97,7 +95,7 @@ public class LinkedQueue <T extends Comparable <T>> implements ILinkedQueue<T>, 
 
 		public T next() {
 			if( y == null){
-				throw new NoSuchElementException("No hat próximo");
+				throw new NoSuchElementException("No hay próximo");
 			}
 			else{
 				T item = (T)y.item;

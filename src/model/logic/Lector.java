@@ -57,7 +57,6 @@ public class Lector
 
 				Comparendo c = new Comparendo(OBJECTID, FECHA_HORA, DES_INFRAC, MEDIO_DETE, CLASE_VEHI, TIPO_SERVI, INFRACCION, LOCALIDAD, longitud, latitud);
 				
-				System.out.println( pila.size() + "T");
 				pila.push( c );
 				cola.enqueue( c );
 

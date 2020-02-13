@@ -77,19 +77,16 @@ public class FixedCapacityStack<T extends Comparable<T>> implements IFixedCapaci
 	private void resize ( int capacidad)
 	{
 		T[] copy = ( T[] ) new Comparable[capacidad];
-		for (int i = 0; i < tamanoMax; ++i)
+		for (int i = 0; i < tamanoAct; ++i)
 		{
 			copy[i] = elementos[i];
 		}
 		tamanoMax = capacidad;
 		elementos = copy;
 	}
-	
-	/**
-	 * 
-	 */
-	public T darElemento()
-	{
-		return elementos[tamanoAct-1];
+
+
+	public T darElemento() {
+		return elementos[--tamanoAct] ;
 	}
 }

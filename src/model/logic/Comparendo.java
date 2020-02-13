@@ -34,15 +34,14 @@ public class Comparendo implements  Comparable<Comparendo>{
 	public String toString() {
 		return "Comparendo [OBJECTID=" + objectId + ", FECHA_HORA=" + fecha_hora + ", DES_INFRAC=" + des_infrac
 				+ ", MEDIO_DETE=" + medio_dete + ", CLASE_VEHI=" + clase_vehi + ", TIPO_SERVI=" + tipo_servi
-				+ ", INFRACCION=" + infraccion + ", LOCALIDAD=" + localidad + ", latitud=" + latitud + ", longitud="
-				+ longitud + "]";
+				+ ", INFRACCION=" + infraccion + ", LOCALIDAD=" + localidad + "]";
 	}
 	
 	public String darTipoInfraccion()
 	{
 		return infraccion;
 	}
-
+	
 	public int compareTo(Comparendo o) {
 		return 0;
 	}	
