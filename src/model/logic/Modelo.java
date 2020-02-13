@@ -52,10 +52,7 @@ public class Modelo {
 	{
 		return pila.darElemento().toString();
 	}
-<<<<<<< HEAD
-=======
-	
->>>>>>> eb78f5b968398c7d6ef2b2142f2ec3b156eb36fe
+
 
 	public String darElementoCola()
 	{
@@ -69,7 +66,6 @@ public class Modelo {
 		Iterator<Comparendo> it = cola.iterator();
 		while(it.hasNext())
 		{
-<<<<<<< HEAD
 			Comparendo aComparar = it.next();
 			String tipoInf = aComparar.darTipoInfraccion();
 			if(temporal.isEmpty() || temporal.darPrimero().darTipoInfraccion().equals(tipoInf)){
@@ -90,12 +86,6 @@ public class Modelo {
 				}
 			}
 			cola.dequeue();
-=======
-			LinkedQueue<String> colador = new LinkedQueue<String>();
-			Comparendo e = it.next();
-
-			System.out.println(e);
->>>>>>> eb78f5b968398c7d6ef2b2142f2ec3b156eb36fe
 		}
 		return rta;
 	}
