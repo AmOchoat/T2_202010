@@ -15,6 +15,8 @@ public class Comparendo implements  Comparable<Comparendo>{
 	private double latitud;
 	private double longitud;
 	
+	private Comparendo siguiente;
+	
 	public Comparendo(int objeId, Date fecha, String descripcion, String detencion, String claseVeh, String tipoSer, String codInfraccion, String localidadP, double lonP, double latP)
 	{
 		objectId = objeId;
@@ -43,4 +45,6 @@ public class Comparendo implements  Comparable<Comparendo>{
 	public int compareTo(Comparendo o) {
 		return 0;
 	}	
+	
+	
 }
